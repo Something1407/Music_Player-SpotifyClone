@@ -22,7 +22,7 @@ function formatTime(seconds) {
 }
 
 async function getSongs() {
-    let a = await fetch("http://127.0.0.1:3000/songs/") || fetch("https://github.com/Something1407/Music_Player-SpotifyClone/tree/main/songs/   ")
+    let a = await fetch("http://127.0.0.1:3000/songs/") || await fetch("https://github.com/Something1407/Music_Player-SpotifyClone/tree/main/songs/")
     let response = await a.text();
     // console.log(response);
     let div = document.createElement("div");
