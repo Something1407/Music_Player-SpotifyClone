@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <main class="container flex  bg-black">
+        <section class="left">
+            <div class="home bg-grey m-1 rounded p-1">
+                <div class="logo"><img class="invert-img" src="logo.svg" alt="logo"></div>
+                <ul>
+                    <li><img class="invert-img" src="home.svg" alt="home">Home</li>
+                    <li><img class="invert-img" src="search.svg" alt="Search">Search</li>
+                </ul>
+            </div>
+            <div class="library bg-grey m-1 rounded p-1">
+                <div class="heading flex align-items">
+                    <div class="library-symbol">
+                        <img src="library.svg" alt="library">
+                        <span>Your Library</span>
+                    </div>
+                    <div class="plus_sign">
+                        <img src="plus.svg" class="invert-img plus flex align-items" alt="plus">
+                    </div>
+                </div>
+                <div class="songList">
+                    <ul id="song_bar">
+                    </ul>
+                </div>
+                <!-- <div class="playlist flex justify-content rounded">
+                    <h3>Create your first playlist</h3>
+                    <h5>It's easy, we'll help you</h5>
+                    <button>Create playlist</button>
+                </div> -->
+                <footer>
+                    <a href="https://www.spotify.com/in-en/legal/" id="">Legal</a>
+                    <a href="https://www.spotify.com/in-en/safetyandprivacy/" id="">Safety &amp;Privacy Center</a>
+                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/" id="">Privacy Policy</a>
+                    <a href="https://www.spotify.com/in-en/legal/cookies-policy/" id="">Cookies</a>
+                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3" id="">About Ads</a>
+                    <a href="https://www.spotify.com/in-en/accessibility/" id="">Accessibility</a>
+                </footer>
+            </div>
+        </section>
+        <section class="right rounded bg-grey m-1">
+            <div class="header bg-black p-1">
+                <div class="nav">
+                    <button>
+                        <img src="smallerthan.svg" alt="smallerthan symbol">
+                    </button>
+                    <button>
+                        <img src="greaterthan.svg" alt="greaterthan symbol">
+                    </button>
+                </div>
+                <div class="login-info">
+                    <button class="bg-grey">Sign up</button>
+                    <button>Log in</button>
+                </div>
+            </div>
+            <div class="spotifyPlaylist">
+                <h1>Spotify Playlist</h1>
+                <div class="cardContainer">
+                    <ul id="song-cards">
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </section>
+        <div class="playbar">
+            <div class="seekbar">
+                <div class="circle">
+                </div>
+            </div>
+            <div class="above">
+                <div class="songinfo">
+                    <div class="songinfoimg">
+                    </div>
+                    <h3 class="songtext"></h3>
+                </div>
+                <div class="play_buttons">
+                    <img id="previous" class="invert-img" src="backward.svg" alt="backawrd">
+                    <button>
+                        <img id="play" src="play.svg" alt="play button">
+                    </button>
+                    <img id="forward" class="invert-img" src="forward.svg" alt="forward">
+                </div>
+                <div class="songtime">
+                    <div class="songruntime">
+                    </div>
+                    <div class="songtotalduration">
+                    </div>
+                </div>
+            </div>
+    </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
