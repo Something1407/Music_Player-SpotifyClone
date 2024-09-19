@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify - Web Player: Music for everyone</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
 </head>
 
 <body>
     <main class="container flex  bg-black">
         <section class="left">
             <div class="home bg-grey m-1 rounded p-1">
-                <div class="logo"><img class="invert-img" src="logo.svg" alt="logo"></div>
+                <div class="logo"><img class="invert-img" src="img/logo.svg" alt="logo"></div>
                 <ul>
-                    <li><img class="invert-img" src="home.svg" alt="home">Home</li>
-                    <li><img class="invert-img" src="search.svg" alt="Search">Search</li>
+                    <li><img class="invert-img" src="img/home.svg" alt="home">Home</li>
+                    <li><img class="invert-img" src="img/search.svg" alt="Search">Search</li>
                 </ul>
             </div>
             <div class="library bg-grey m-1 rounded p-1">
                 <div class="heading flex align-items">
                     <div class="library-symbol">
-                        <img src="library.svg" alt="library">
+                        <img src="img/library.svg" alt="library">
                         <span>Your Library</span>
                     </div>
                     <div class="plus_sign">
-                        <img src="plus.svg" class="invert-img plus flex align-items" alt="plus">
+                        <img src="img/plus.svg" class="invert-img plus flex align-items" alt="plus">
                     </div>
                 </div>
                 <div class="songList">
@@ -51,11 +51,12 @@
         <section class="right rounded bg-grey m-1">
             <div class="header bg-black p-1">
                 <div class="nav">
+                    <img class="hamburger" src="img/hamburger.svg" alt="">
                     <button>
-                        <img src="smallerthan.svg" alt="smallerthan symbol">
+                        <img src="img/smallerthan.svg" alt="smallerthan symbol">
                     </button>
                     <button>
-                        <img src="greaterthan.svg" alt="greaterthan symbol">
+                        <img src="img/greaterthan.svg" alt="greaterthan symbol">
                     </button>
                 </div>
                 <div class="login-info">
@@ -85,22 +86,29 @@
                     <h3 class="songtext"></h3>
                 </div>
                 <div class="play_buttons">
-                    <img id="previous" class="invert-img" src="backward.svg" alt="backawrd">
+                    <img id="previous" class="invert-img" src="img/backward.svg" alt="backawrd">
                     <button>
-                        <img id="play" src="play.svg" alt="play button">
+                        <img id="play" src="img/play.svg" alt="play button">
                     </button>
-                    <img id="forward" class="invert-img" src="forward.svg" alt="forward">
+                    <img id="forward" class="invert-img" src="img/forward.svg" alt="forward">
                 </div>
                 <div class="songtime">
                     <div class="songruntime">
                     </div>
                     <div class="songtotalduration">
                     </div>
+                    <div class="volume">
+                        <img class="volume-svg" src="img/highvolume.svg" alt="volume">
+                        <!-- <input class="volume-seek" type="range" name="volume" id=""> -->
+                        <div class="range-div">
+                            <input type="range" class="volume-seek" min="0" max="100" value="50" id="volumeRange">
+                        </div>
+                    </div>
                 </div>
             </div>
     </main>
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

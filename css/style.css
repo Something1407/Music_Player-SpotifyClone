@@ -27,6 +27,7 @@ body {
     list-style: none;
     padding-top: 12px;
     padding-left: 2px;
+    cursor: pointer;
 }
 
 .library {
@@ -65,7 +66,7 @@ body {
     font-size: 15px;
     font-weight: 500;
     max-height: 55vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     text-wrap: wrap;
 }
 
@@ -89,7 +90,11 @@ body {
     transform: scale(108%);
 }
 
-.songList ul li img {
+.randomImg {
+    height: 50px;
+}
+
+.playImg {
     height: 33px;
 }
 
@@ -98,6 +103,12 @@ body {
     align-items: center;
     font-size: 15px;
     padding-left: 8px;
+}
+
+
+
+.info div {
+    word-break: break-all;
 }
 
 .playnow {
@@ -163,6 +174,12 @@ footer a {
     padding: 13px;
 }
 
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav button {
     padding: 8px;
     height: 30px;
@@ -170,6 +187,13 @@ footer a {
     border-radius: 20px;
     border: none;
     background-color: black;
+
+}
+
+.hamburger {
+    display: none;
+    /* visibility: hidden; */
+    height: 30px;
 }
 
 .login-info button:last-child {
@@ -186,12 +210,12 @@ footer a {
 }
 
 .login-info button:last-child:hover {
-    transform: scale(110%);
+    transform: scale(120%);
     background-color: rgb(221, 221, 221);
 }
 
 .login-info button:first-child:hover {
-    transform: scale(110%);
+    transform: scale(120%);
     color: rgb(255, 255, 255);
 }
 
@@ -223,7 +247,7 @@ footer a {
     flex-wrap: wrap;
     margin: 10px;
     max-height: 60vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .card {
@@ -243,7 +267,7 @@ footer a {
 .card button {
     background-color: rgb(0, 208, 0);
     color: rgb(203, 203, 203);
-    border-radius: 40px;
+    border-radius: 100%;
     width: 48px;
     height: 48px;
     border: none;
@@ -286,11 +310,11 @@ footer a {
     bottom: 0%;
     /* position: absolute;
     bottom: 0%; */
-    height: 10vh;
+    height: 10%;
     width: 100%;
     background-color: rgb(0, 0, 0);
     padding: 5px 0px;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .play_buttons {
@@ -322,7 +346,7 @@ footer a {
 }
 
 .play_buttons img:hover:not(.play_buttons button img) {
-    transform: scale(110%);
+    transform: scale(120%);
 }
 
 .play_buttons button img {
@@ -331,7 +355,7 @@ footer a {
 }
 
 .play_buttons button:hover {
-    transform: scale(110%);
+    transform: scale(120%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -349,6 +373,14 @@ footer a {
     cursor: pointer;
 }
 
+.seekbar:hover {
+    background-color: rgb(255, 255, 255);
+
+    .circle {
+        background-color: rgb(0, 250, 0);
+    }
+}
+
 .circle {
     height: 10px;
     width: 10px;
@@ -358,12 +390,13 @@ footer a {
     position: absolute;
     top: -3px;
     left: 0%;
-    transition: left 0.3s linear;
+    transition: all 0.2s linear;
 }
 
 .circle:hover {
-    transform: scale(110%);
+    transform: scale(130%);
     cursor: pointer;
+    background-color: rgb(0, 255, 0);
 }
 
 .above {
@@ -388,6 +421,7 @@ footer a {
     cursor: default;
 }
 
+
 .songtime {
     padding: 10px 40px;
     font-size: 18px;
@@ -409,21 +443,168 @@ footer a {
     cursor: default;
 }
 
-@media (max-width:1200px) {
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.volume-svg {
+    height: 30px;
+    margin-top: 3px;
+}
+
+
+input[type="range"].volume-seek {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: white;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Track */
+input[type="range"].volume-seek::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+input[type="range"].volume-seek::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+/* Thumb */
+input[type="range"].volume-seek::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px;
+    /* This centers the thumb vertically */
+    transition: background-color 0.3s ease;
+    /* Smooth color transition */
+}
+
+input[type="range"].volume-seek::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Filled track based on value */
+input[type="range"].volume-seek::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, orange 0%, orange var(--seek-value), white var(--seek-value), white 100%);
+}
+
+input[type="range"].volume-seek::-moz-range-track {
+    background: linear-gradient(to right, orange 0%, orange var(--seek-value), white var(--seek-value), white 100%);
+}
+
+/* Hover effect: Change the thumb and track color to cyan */
+input[type="range"].volume-seek:hover::-webkit-slider-thumb {
+    background-color: cyan;
+}
+
+input[type="range"].volume-seek:hover::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, cyan 0%, cyan var(--seek-value), white var(--seek-value), white 100%);
+}
+
+input[type="range"].volume-seek:hover::-moz-range-track {
+    background: linear-gradient(to right, cyan 0%, cyan var(--seek-value), white var(--seek-value), white 100%);
+}
+
+@media (max-width:1000px) {
     .left {
         position: absolute;
         z-index: 1;
-        background-color: red;
+        height: 100vh;
+        width: 70vw;
         left: -100%;
-        transition: all 0.4s linear;
+        transition: all 0.5s ease-in-out;
+        background-color: black;
+    }
+
+    .heading {
+        font-size: 14px;
+    }
+
+    .library-symbol {
+        gap: 10px;
+    }
+
+    .songList ul {
+        font-size: 10px;
+        font-weight: 400;
+        padding: 0px 5px;
+    }
+
+    .songList ul li {
+        padding: 10px 5px;
+        margin: 5px;
+    }
+
+    .randomImg {
+        height: 30px;
+    }
+
+    .playImg {
+        height: 18px;
+    }
+
+    .info {
+        font-size: 10px;
+        padding-left: 4px;
+    }
+
+    .playnow {
+        font-size: 8px;
+    }
+
+    .playnow button {
+        height: 15px;
+        width: 15px;
+        margin-left: 4px;
+    }
+
+    .plus_sign {
+        transition: all 1s ease-in-out;
+    }
+
+    footer {
+        font-size: 5px;
+        gap: 5px;
+        padding-right: 0px;
+    }
+
+    .songList ul {
+        max-height: 65vh;
     }
 
     .right {
         width: 100vw;
+        transition: all 0.3s ease-in-out;
     }
 
     .playbar {
         width: 95vw;
+        height: 6%;
+        padding-top: 5px;
     }
 
     .songinfoimg {
@@ -437,13 +618,13 @@ footer a {
 
     .songruntime {
         font-size: 8px;
-        top: 49%;
+        top: 40%;
         left: 42%;
     }
 
     .songtotalduration {
         font-size: 8px;
-        top: 49%;
+        top: 40%;
         right: 20%;
     }
 
@@ -454,7 +635,7 @@ footer a {
     .play_buttons {
         gap: 10px;
         height: 20px;
-        left: 45%;
+        left: 48%;
         padding: 0;
         margin: 0;
     }
@@ -470,7 +651,59 @@ footer a {
     }
 
     .spotifyPlaylist h1 {
-        margin: 0px 22%;
-        font-size: 25px;
+        text-align: center;
+        margin: 10px 0px;
+        font-size: 23px;
+    }
+
+    .cardContainer {
+        justify-content: center;
+        margin: 3px;
+        gap: 3px;
+        max-height: 75vh;
+    }
+
+    .card {
+        width: 250px;
+        height: 320px;
+        padding: 15px;
+    }
+
+    .card button {
+        width: 75px;
+        height: 75px;
+        top: 55%;
+    }
+
+    .card button img {
+        width: 45px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .hamburger {
+        /* visibility: visible; */
+        display: block;
+    }
+
+    .volume-svg {
+        position: absolute;
+        right: 5%;
+        height: 20px;
+        top: 15%;
+    }
+
+    input[type="range"].volume-seek {
+        visibility: hidden;
+        margin-top: 10px;
+        transform: rotate(270deg);
+    }
+
+    .range-div {
+        position: absolute;
+        bottom: 190%;
+        right: calc(0px - 35px);
     }
 }
