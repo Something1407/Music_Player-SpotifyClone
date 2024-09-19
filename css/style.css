@@ -178,6 +178,7 @@ footer a {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav button {
@@ -188,6 +189,11 @@ footer a {
     border: none;
     background-color: black;
 
+}
+
+.nav img:hover {
+    color: white;
+    transform: scale(105%);
 }
 
 .hamburger {
