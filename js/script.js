@@ -23,9 +23,7 @@ function formatTime(seconds) {
 }
 
 async function getSongs() {
-    let a = await fetch("https://something1407.github.io/Music_Player-SpotifyClone/songs/", {
-        mode: 'no-cors'
-    });
+    let a = await fetch("/Music_Player-Spotify_clone/songs/");
     let response = await a.text();
     // console.log(response);
     let div = document.createElement("div");
