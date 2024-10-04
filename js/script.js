@@ -23,7 +23,7 @@ function formatTime(seconds) {
 }
 
 async function getSongs() {
-    let a = await fetch("/Music_Player-Spotify_clone/songs/");
+    let a = await fetch("/songs/");
     let response = await a.text();
     // console.log(response);
     let div = document.createElement("div");
@@ -40,7 +40,7 @@ async function getSongs() {
 }
 
 const playMusic = (track) => {
-    currentSong.src = "/Music_Player-Spotify_clone/songs/" + track;
+    currentSong.src = "/songs/" + track;
     currentSong.play();
     play.src = "img/pause.svg";
     document.querySelector(".songtext").innerHTML = decodeURI(track);
