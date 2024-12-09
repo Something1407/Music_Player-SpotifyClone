@@ -24,7 +24,7 @@ function formatTime(seconds) {
 
 async function getSongs() {
     // let a = await fetch("/songs/");
-    let a = await fetch("https://something1407.github.io/Music_Player-SpotifyClone/songs/");
+    let a = await fetch("https://raw.githubusercontent.com/Something1407/Music_Player-SpotifyClone/main/songs/");
     let response = await a.text();
     // console.log(response);
     let div = document.createElement("div");
@@ -41,7 +41,7 @@ async function getSongs() {
 }
 
 const playMusic = (track) => {
-    currentSong.src = "https://something1407.github.io/Music_Player-SpotifyClone/songs/" + track;
+    currentSong.src = "https://raw.githubusercontent.com/Something1407/Music_Player-SpotifyClone/main/songs/" + track;
     currentSong.play();
     play.src = "img/pause.svg";
     document.querySelector(".songtext").innerHTML = decodeURI(track);
