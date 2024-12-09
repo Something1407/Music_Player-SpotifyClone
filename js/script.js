@@ -23,7 +23,8 @@ function formatTime(seconds) {
 }
 
 async function getSongs() {
-    let a = await fetch("/songs/");
+    // let a = await fetch("/songs/");
+    let a = await fetch("https://raw.githubusercontent.com/Something1407/music/main/songs/");
     let response = await a.text();
     // console.log(response);
     let div = document.createElement("div");
@@ -40,7 +41,7 @@ async function getSongs() {
 }
 
 const playMusic = (track) => {
-    currentSong.src = "/songs/" + track;
+    currentSong.src = `https://raw.githubusercontent.com/Something1407/music/main/songs/${track}`;
     currentSong.play();
     play.src = "img/pause.svg";
     document.querySelector(".songtext").innerHTML = decodeURI(track);
